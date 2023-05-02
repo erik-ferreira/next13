@@ -1,4 +1,6 @@
 export async function Repos() {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   const url = "https://api.github.com/users/erik-ferreira/repos";
   const response = await fetch(url, {
     cache: "no-store",
