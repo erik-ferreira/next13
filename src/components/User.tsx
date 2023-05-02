@@ -1,18 +1,18 @@
-import { Repos } from "./Repos";
+import { cookies, headers } from "next/headers";
 
 export async function User() {
-  const response = await fetch("https://api.github.com/users/erik-ferreira", {
-    cache: "no-store",
-  });
-  const user = await response.json();
+  const userCookies = cookies();
+  const userHeaders = headers();
 
   return (
     <div>
       <h1>User</h1>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
 
-      {/* @ts-expect-error Async Server Component */}
-      <Repos />
+      <h2>Cookies</h2>
+      {JSON.stringify(userCookies, null, 2)}
+
+      <h2>Headers</h2>
+      {JSON.stringify(userHeaders, null, 2)}
     </div>
   );
 }
