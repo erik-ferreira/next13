@@ -1,18 +1,18 @@
-import { cookies, headers } from "next/headers";
+"use client";
 
-export async function User() {
-  const userCookies = cookies();
-  const userHeaders = headers();
+import { useState } from "react";
+
+export function User() {
+  const [count, setCount] = useState(0);
 
   return (
     <div>
       <h1>User</h1>
+      <h2>Value: {count}</h2>
 
-      <h2>Cookies</h2>
-      {JSON.stringify(userCookies, null, 2)}
-
-      <h2>Headers</h2>
-      {JSON.stringify(userHeaders, null, 2)}
+      <button type="button" onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
     </div>
   );
 }

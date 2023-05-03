@@ -4,6 +4,13 @@ interface AppLayoutChildren {
   children: ReactNode;
 }
 
+export const metadata = {
+  title: {
+    default: "Rocketseat",
+    template: "%s | Rocketseat",
+  },
+};
+
 export default function AppLayout({ children }: AppLayoutChildren) {
   return (
     <div style={{ background: "#CFD" }}>
